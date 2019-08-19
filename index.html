@@ -15,48 +15,34 @@
                 let computerChoice = choices[Math.floor(Math.random() * choices.length)];
                 return computerChoice;
             }
+
+            let playerSelection = 
+                    prompt('Make a choice: Rock, Paper or Scissors?').toLowerCase();
+                
+            let computerSelection = computerPlay().toLowerCase();
             
 // Play a round of rock, paper, scissors
 
-            function playRound(playerSelection, computerselection) {
-                //insert code to play a single round
+            function playRound() {
 
-                let playerSelection = 
-                    prompt('Make a choice: Rock, Paper or Scissors?');
-                
-                let computerSelection = computerPlay('');
-
-                switch(playerSelection.toLowerCase(), computerSelection.toLowerCase()) {
-                    case 'rock', 'paper':
-                    alert('Paper beats rock, you lose!')
-                    break;
-
-                    case 'rock',  'scissors':
-                    alert('Rock beats scissors, you win!')
-                    break;
-
-                    case 'paper', 'rock':
-                    alert('Paper beats rock, you win!')
-                    break;
-
-                    case 'paper', 'scissors':
-                    alert('Scissots beats paper, you lose!')
-                    break;
-
-                    case 'scissors', 'rock':
-                    alert('Rock beats scissors, you lose!')
-                    break;
-
-                    case('scissors', 'paper'):
-                    alert('Scissors beats paper, you win!')
-                    break;
-
-                    default:
-                    alert('It\'s a tie')
-                }
-
-                //switch statement comparinf each 'case' eg rock : scissors = Rock wins
+                if (playerSelection === 'rock' && computerSelection === 'paper' ||
+                    playerSelection === 'paper' && computerSelection === 'scissors' ||
+                    playerSelection === 'scissors' && computerSelection === 'rock') 
+                    {
+                    alert(computerSelection + ' beats ' + playerSelection + '. You lose!')
+         } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
+                    playerSelection === 'paper' && computerSelection === 'rock' ||
+                    playerSelection ===' scissors' && computerSelection === 'paper') 
+                    {
+                    alert(playerSelection + ' beats ' + computerSelection + '. You win!')
+             } else { 
+                 alert('It\s a draw.') 
+                 }
             }
+            
+console.log(playRound())
+console.log('Computer chose ' +computerSelection);
+console.log('Player chose ' +playerSelection)
                
         </script>
     </body>
