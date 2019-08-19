@@ -35,8 +35,12 @@
                     playerSelection ===' scissors' && computerSelection === 'paper') 
                     {
                     alert(playerSelection + ' beats ' + computerSelection + '. You win!')
+             } else if (!playerSelection === 'rock' || !playerSelection === 'paper' || !playerSelection === 'scissors')
+             
+             { alert('You spelled that wrong. You must enter Rock, Paper or Scissors')
+                          
              } else { 
-                 alert('It\s a draw.') 
+                 alert(' Computer also chose ' +computerSelection +'. It\s a draw.') 
                  }
             }
             
