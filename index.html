@@ -6,13 +6,12 @@
     <body>
         <script>
             
-            
-
-            let choices = ['rock', ' paper', 'scissors'];
-
 //The function 'computerPlay()' selects a random choice from the 'choices' array and returns that value
 
-            function computerselection() {
+            function computerPlay() {
+                
+                let choices = ['rock', ' paper', 'scissors'];
+
                 let computerChoice = choices[Math.floor(Math.random() * choices.length)];
                 return computerChoice;
             }
@@ -21,6 +20,40 @@
 
             function playRound(playerSelection, computerselection) {
                 //insert code to play a single round
+
+                let playerSelection = 
+                    prompt('Make a choice: Rock, Paper or Scissors?');
+                
+                let computerSelection = computerPlay('');
+
+                switch(playerSelection.toLowerCase(), computerSelection.toLowerCase()) {
+                    case 'rock', 'paper':
+                    alert('Paper beats rock, you lose!')
+                    break;
+
+                    case 'rock',  'scissors':
+                    alert('Rock beats scissors, you win!')
+                    break;
+
+                    case 'paper', 'rock':
+                    alert('Paper beats rock, you win!')
+                    break;
+
+                    case 'paper', 'scissors':
+                    alert('Scissots beats paper, you lose!')
+                    break;
+
+                    case 'scissors', 'rock':
+                    alert('Rock beats scissors, you lose!')
+                    break;
+
+                    case('scissors', 'paper'):
+                    alert('Scissors beats paper, you win!')
+                    break;
+
+                    default:
+                    alert('It\'s a tie')
+                }
 
                 //switch statement comparinf each 'case' eg rock : scissors = Rock wins
             }
