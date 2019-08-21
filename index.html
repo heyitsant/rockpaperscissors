@@ -16,10 +16,14 @@
                 return computerChoice;
             }
 
+// toLowerCase function ignores formatting on user input
+
             let playerSelection = 
                     prompt('Make a choice: Rock, Paper or Scissors?').toLowerCase();
                 
-            let computerSelection = computerPlay().toLowerCase();
+            let computerSelection = computerPlay();
+
+// Formats result so choices are presented to player with first letter capitalised.
 
             let playerResult = playerSelection.charAt(0).toUpperCase() +playerSelection.slice(1);
             let computerResult = computerSelection.charAt(0).toLocaleUpperCase() +computerSelection.slice(1);
@@ -33,6 +37,12 @@
                     alert('Computer also chose ' +computerResult +' it\s a draw.');
                 }
 
+                else if (!playerSelection === 'rock' || !playerSelection === 'paper' || !playerSelection === 'scissors')
+             
+             { alert('You spelled that wrong. You must enter Rock, Paper or Scissors')
+                          
+             }
+
                 else if 
                 
                 (playerSelection === 'rock' && computerSelection === 'paper' ||
@@ -41,7 +51,7 @@
                     {
                  alert(computerResult + ' beats ' + playerResult + '. You lose!');
                   
-              } else if 
+              } else
                 
                 (playerSelection === 'rock' && computerSelection === 'scissors' ||
                  playerSelection === 'paper' && computerSelection === 'rock' ||
@@ -49,18 +59,16 @@
                     {
                  alert(playerResult + ' beats ' + computerResult + '. You win!');
              
-             } else if (!playerSelection === 'rock' || !playerSelection === 'paper' || !playerSelection === 'scissors')
-             
-             { alert('You spelled that wrong. You must enter Rock, Paper or Scissors')
-                          
-             } else { 
-                 return null;
-                 }
+             } 
             }
+
+// Time to play a game, best of 5 so first to score 3 points wins.
+
+            //game()
             
             (playRound())
-console.log('Computer chose ' +computerResult);
-console.log('Player chose ' +playerResult)
+console.log('Computer chose ' +computerSelection);
+console.log('Player chose ' +playerSelection)
                
         </script>
     </body>
