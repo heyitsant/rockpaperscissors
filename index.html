@@ -10,7 +10,7 @@
 
             function computerPlay() {
                 
-                let choices = ['rock', ' paper', 'scissors'];
+                let choices = ['rock', 'paper', 'scissors'];
 
                 let computerChoice = choices[Math.floor(Math.random() * choices.length)];
                 return computerChoice;
@@ -20,33 +20,47 @@
                     prompt('Make a choice: Rock, Paper or Scissors?').toLowerCase();
                 
             let computerSelection = computerPlay().toLowerCase();
+
+            let playerResult = playerSelection.charAt(0).toUpperCase() +playerSelection.slice(1);
+            let computerResult = computerSelection.charAt(0).toLocaleUpperCase() +computerSelection.slice(1);
             
 // Play a round of rock, paper, scissors
 
             function playRound() {
 
-                if (playerSelection === 'rock' && computerSelection === 'paper' ||
-                    playerSelection === 'paper' && computerSelection === 'scissors' ||
-                    playerSelection === 'scissors' && computerSelection === 'rock') 
+                if (playerSelection === computerSelection) {
+
+                    alert('Computer also chose ' +computerResult +' it\s a draw.');
+                }
+
+                else if 
+                
+                (playerSelection === 'rock' && computerSelection === 'paper' ||
+                 playerSelection === 'paper' && computerSelection === 'scissors' ||
+                 playerSelection === 'scissors' && computerSelection === 'rock') 
                     {
-                    alert(computerSelection + ' beats ' + playerSelection + '. You lose!')
-         } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
-                    playerSelection === 'paper' && computerSelection === 'rock' ||
-                    playerSelection ===' scissors' && computerSelection === 'paper') 
+                 alert(computerResult + ' beats ' + playerResult + '. You lose!');
+                  
+              } else if 
+                
+                (playerSelection === 'rock' && computerSelection === 'scissors' ||
+                 playerSelection === 'paper' && computerSelection === 'rock' ||
+                 playerSelection === 'scissors' && computerSelection === 'paper') 
                     {
-                    alert(playerSelection + ' beats ' + computerSelection + '. You win!')
+                 alert(playerResult + ' beats ' + computerResult + '. You win!');
+             
              } else if (!playerSelection === 'rock' || !playerSelection === 'paper' || !playerSelection === 'scissors')
              
              { alert('You spelled that wrong. You must enter Rock, Paper or Scissors')
                           
              } else { 
-                 alert(' Computer also chose ' +computerSelection +'. It\s a draw.') 
+                 return null;
                  }
             }
             
-console.log(playRound())
-console.log('Computer chose ' +computerSelection);
-console.log('Player chose ' +playerSelection)
+            (playRound())
+console.log('Computer chose ' +computerResult);
+console.log('Player chose ' +playerResult)
                
         </script>
     </body>
