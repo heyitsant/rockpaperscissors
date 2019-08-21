@@ -17,34 +17,47 @@
             }
 
 // toLowerCase function ignores formatting on user input
+            let playerScore = 0
+            let computerScore = 0
 
-            let playerSelection = 
-                    prompt('Make a choice: Rock, Paper or Scissors?').toLowerCase();
-                
-            let computerSelection = computerPlay();
-
-// Formats result so choices are presented to player with first letter capitalised.
-
-            let playerResult = playerSelection.charAt(0).toUpperCase() +playerSelection.slice(1);
-            let computerResult = computerSelection.charAt(0).toLocaleUpperCase() +computerSelection.slice(1);
+            let playerSelection
             
 // Play a round of rock, paper, scissors
 
             function playRound() {
+                
+                let playerSelection = 
+                    prompt('Make a choice: Rock, Paper or Scissors?').toLowerCase();
+                
+                let computerSelection = computerPlay();
 
-                if (playerSelection === computerSelection) 
+// Formats result so choices are presented to player with first letter capitalised.
+
+                let playerResult = playerSelection.charAt(0).toUpperCase() +playerSelection.slice(1);
+                let computerResult = computerSelection.charAt(0).toLocaleUpperCase() +computerSelection.slice(1);
+
                 
-                { alert('Computer also chose ' +computerResult +' it\s a draw.');
-                
-                } else if (!playerSelection === 'rock' || !playerSelection === 'paper' || !playerSelection === 'scissors')
+                if (!playerResult === 'Rock' || !playerResult === 'Paper' || !playerResult === 'Scissors')
              
                 { alert('You spelled that wrong. You must enter Rock, Paper or Scissors');
-                          
-                } else if (playerSelection === 'rock' && computerSelection === 'paper' ||
+                 game();    
+                                       
+                } else if (playerSelection === computerSelection) 
+                
+                { alert('Computer also chose ' +computerResult +' it\s a draw.');
+                console.log('player score = ' +playerScore +' || ' +'computer score = ' +computerScore)
+                game();
+                
+                } else  if (playerSelection === 'rock' && computerSelection === 'paper' ||
                            playerSelection === 'paper' && computerSelection === 'scissors' ||
                            playerSelection === 'scissors' && computerSelection === 'rock') 
                 {
                  alert(computerResult + ' beats ' + playerResult + '. You lose!');
+
+                 computerScore++
+
+                 console.log('player score = ' +playerScore +' || ' +'computer score = ' +computerScore)
+                 game();
                 
                 } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
                            playerSelection === 'paper' && computerSelection === 'rock' ||
@@ -52,17 +65,41 @@
                 {
                 
                  alert(playerResult + ' beats ' + computerResult + '. You win!');
+
+                 playerScore++
+
+                 console.log('player score = ' +playerScore +' || ' +'computer score = ' +computerScore)
+                 game();
                 
                 } 
                                 }
 
 // Time to play a game, best of 5 so first to score 3 points wins.
 
-            //game()
             
-            playRound()
-console.log('Computer chose ' +computerResult);
-console.log('Player chose ' +playerResult)
+            function game() {
+
+            if (playerScore < 3 && computerScore < 3)
+            {
+                playRound()
+            } else {
+                result()
+            }
+            }
+
+            function result() {
+             if (playerScore > computerScore)
+            {
+             alert('You beat the computer. Play again?')
+            } else if (computerScore > playerScore)
+            {
+             alert('The computer beat you. Play again?')
+            }
+            }
+
+                
+
+            game()            
                
         </script>
     </body>
